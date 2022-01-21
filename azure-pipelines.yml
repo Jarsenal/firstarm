@@ -13,8 +13,8 @@ steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'Jan2022TestCon'
-    subscriptionId: '963c350c-5737-409f-9cab-5869890b900a'
+    azureResourceManagerConnection: 'MOZCon'
+    subscriptionId: '4ea0f441-4127-468d-9c9b-56444b787c00'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'firstarm'
     location: 'Australia East'
