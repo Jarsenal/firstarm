@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Jan2022TestCon'
+    subscriptionId: '963c350c-5737-409f-9cab-5869890b900a'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'firstarm'
+    location: 'Australia East'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/Jarsenal/firstarm/main/CreateWepApp/azuredeploy.json'
+    overrideParameters: '-projectName FirstArm'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
